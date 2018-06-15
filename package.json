@@ -1,0 +1,30 @@
+{
+    "name": "linux-gsm-web",
+    "description": "web interface for Linux GSM",
+    "version": "0.0.1",
+    "main": "./app/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/clevelandcs/LinuxGSM-Web.git"
+    },
+    "keywords": [
+        "Linux",
+        "Game",
+        "Server",
+        "Manager",
+        "GSM"
+    ],
+    "author": {
+        "name": "Connor Cleveland",
+        "email": "ccleveland@clevelandcoding.com",
+        "url": "https://ClevelandCoding.com"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/clevelandcs/LinuxGSM-Web/issues"
+    },
+    "dependencies": {
+        "express": "^4.16.3",
+        "socket.io": "^2.1.1"
+    }
+}
