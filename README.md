@@ -1,2 +1,3 @@
 # LinuxGSM-Web
 Web interface for Linux GSM.
+[![Build Status](https://travis-ci.org/clevelandcs/LinuxGSM-Web.svg?branch=master)](https://travis-ci.org/clevelandcs/LinuxGSM-Web)
