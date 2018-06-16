@@ -31,7 +31,7 @@
         "socket.io": "^2.1.1"
     },
     "scripts": {
-        "start": "node ./app/index.js",
-        "test": "mocha ./test/spec.js"
+        "start": "node ./app/app.js",
+        "test": "mocha --reporter spec"
     }
 }
