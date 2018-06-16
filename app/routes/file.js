@@ -8,12 +8,13 @@ exports.download = function (uri) {
 
     //var wget = spawn('wget', [uri]);
     wget = execSync("wget " + uri, function(error, stdout, stderr){
-        if(error){
+        /*if(error){
             return error.code;
         }else{
             return 0;
-        }
+        }*/
     });
+    return fs.existsSync(file_name);
     //Output stdout and stderr to logs and/or ui 
     //child.stdout.on('data', function (data) {   process.stdout.write(data.toString());  });
     //child.stderr.on('data', function (data) {   process.stdout.write(data.toString());  });

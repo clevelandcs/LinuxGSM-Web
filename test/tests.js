@@ -6,7 +6,7 @@ describe("File IO", function () {
         it("can download a simple file", function () {
             var lgsm = file.download("https://linuxgsm.com/dl/linuxgsm.sh");
             var fileExists = fs.existsSync("./linuxgsm.sh");
-            expect(lgsm).to.equal(0);
+            expect(lgsm).to.equal(true);
             expect(fileExists).to.equal(true);
         });
     });
