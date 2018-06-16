@@ -1,6 +1,5 @@
-var request = require('request');
-var fs = require('fs');
-var execSync = require('child_process').execSync;
+const fs = require('fs');
+const execSync = require('child_process').execSync;
 const url = require('url');
 
 exports.download = function (uri) {
@@ -24,11 +23,13 @@ exports.download = function (uri) {
 }
 
 exports.installServer = function (filename, serverName) {
-    chmod = execSync("chmod +x " + filename, function (error, stdout, stderr) {
+    fs.chmodSync(filename, 764);
+
+    /*chmod = execSync("chmod +x " + filename, function (error, stdout, stderr) {
         if (error) {
             console.log(error.code);
         }
-    });
+    });*/
     download = execSync('./' + filename + ' ' + serverName, function (error, stdout, stderr) {
         if (error) {
             console.log(error.code);
@@ -40,5 +41,5 @@ exports.installServer = function (filename, serverName) {
             console.log(error.code);
         }
     });
-    return error.code;
+    return fs.existsSync(serverName);
 }
