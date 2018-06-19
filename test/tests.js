@@ -10,10 +10,12 @@ describe("File IO", function () {
             expect(fileExists).to.equal(true);
         });
     });
+    /* Figure out how to test server install
     describe("Install a server", function(){
         it("can install a linux game server", function(){
             var installed = file.installServer("linuxgsm.sh","arkserver");
             expect(installed).to.equal(true);
-        });
+        }).timeout(3000);
     });
+    **/
 });
