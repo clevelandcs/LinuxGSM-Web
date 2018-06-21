@@ -1,6 +1,8 @@
 const fs = require('fs');
 const execSync = require('child_process').execSync;
 const url = require('url');
+const shell = require('shelljs')
+
 
 exports.download = function (uri) {
     var file_name = url.parse(uri).pathname.split('/').pop();
@@ -11,14 +13,19 @@ exports.download = function (uri) {
 }
 
 exports.installServer = function (filename, serverName) {
-    async.series([
-        async.apply(fs.chmod(filename,'700')),
-        async.apply(exec, './' + filename + ' ' + serverName),
-        async.apply(exec, './' + serverName + ' auto-install')
-    ],
-    function(err,results){
-        console.log(results);
+    if(shell.exec('chmod 700 ' + filename).code !== 0){
+        console.log("Error setting permissions on " + filename);
+        return false;
+    }else{
+        if( shell.exec('./' + filename + ' ' + serverName).code !== 0){
+            console.log("Error running server install for " + serverName);
+            return false;
+        }else{
+            if(shell.exec('./' + serverName + ' auto-install').code !== 0){
+                console.log("Error running auto-install for " + serverName);
+                return false;
+            }
+        }
     }
-);
     return fs.existsSync(serverName);
 }
