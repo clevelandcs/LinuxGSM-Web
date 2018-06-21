@@ -28,7 +28,7 @@
         "express": "^4.16.3",
         "mocha": "^5.2.0",
         "request": "^2.87.0",
-        "shell.js": "^2.0.9",
+        "shelljs": "^0.8.2",
         "socket.io": "^2.1.1"
     },
     "scripts": {
