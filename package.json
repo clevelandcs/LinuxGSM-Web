@@ -1,8 +1,12 @@
 {
     "name": "linux-gsm-web",
+    "version": "0.0.0",
     "description": "web interface for Linux GSM",
-    "version": "0.0.1",
     "main": "./app/index.js",
+    "scripts": {
+        "start": "node ./app/app.js",
+        "test": "mocha --reporter spec"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/clevelandcs/LinuxGSM-Web.git"
@@ -31,8 +35,7 @@
         "shelljs": "^0.8.2",
         "socket.io": "^2.1.1"
     },
-    "scripts": {
-        "start": "node ./app/app.js",
-        "test": "mocha --reporter spec"
+    "devDependencies": {
+        
     }
 }
