@@ -1,7 +1,8 @@
 var args = process.argv;
 var path = require('path');
 var favicon = require('serve-favicon');
-var app = require('express')();
+var express = require('express');
+var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 var socketController = require(path.join(__dirname,'controllers','sockets'));
@@ -21,7 +22,7 @@ if (args.indexOf('-p') != -1) {
 */
 var controller = require(path.join(__dirname, 'routes','pages'));
 
-//app.use(express.static)
+app.use(express.static('public'));
 app.use('/', require('./routes/pages').pages);
 
 server.listen(port);
