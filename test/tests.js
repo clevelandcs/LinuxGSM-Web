@@ -1,5 +1,5 @@
 var expect = require("chai").expect;
-var file = require("../app/routes/file.js");
+var file = require("../app/models/file.js");
 var fs = require('fs');
 describe("File IO", function () {
     describe("Download a file", function () {
