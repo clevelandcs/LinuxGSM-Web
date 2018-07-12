@@ -64,7 +64,7 @@ TODO:
 
 ## Contributing
 
-Please read Contributing.md for details on code of conduct and pull request process. Feel free to submit issues, requests, and suggestions through Github issues.
+Please read [Contributing.md](https://github.com/clevelandcs/LinuxGSM-Web/blob/master/CONTRIBUTING.md) for details on code of conduct and pull request process. Feel free to submit issues, requests, and suggestions through Github issues.
 
 ## Versioning
 
@@ -76,7 +76,7 @@ This repository uses [SemVer](https://semver.org/) for versioning. For the list 
 
 ## License
 
-This project is licensed under the MIT License - see the license.md for details
+This project is licensed under the MIT License - see the [license.md](https://github.com/clevelandcs/LinuxGSM-Web/blob/master/LICENSE) for details
 
 ## Acknowledgments
 
