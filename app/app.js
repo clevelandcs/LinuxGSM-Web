@@ -24,6 +24,7 @@ var controller = require(path.join(__dirname, 'routes','pages'));
 
 app.use(express.static('public'));
 app.use('/', require('./routes/pages').pages);
+app.use("/styles",  express.static(path.join(__dirname, 'public')));
 
 server.listen(port);
 
