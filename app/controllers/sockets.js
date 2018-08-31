@@ -7,5 +7,8 @@ module.exports.listen = function(io, socket){
         socket.on('my other event', function(data){
             console.log(data);
         });
+        io.on('serverList', function(){
+            socket.emit('serverList',db.selectServerList())
+        });
     });
 }

@@ -5,14 +5,18 @@ var express = require('express');
 var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
+var fs = require('fs');
+var db = require('./models/db.js');
+const config = require('./config');
 var socketController = require(path.join(__dirname,'controllers','sockets'));
 
 //Defaults
-var port = 8080;
-
 if (args.indexOf('-p') != -1) {
     port = args[args.indexOf('-p') + 1];
+}else{
+    port = config.app.port;
 }
+
 //uncomment when favicon has been added
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 /*app.use(function(req, res, next){
@@ -21,7 +25,7 @@ if (args.indexOf('-p') != -1) {
 });
 */
 var controller = require(path.join(__dirname, 'routes','pages'));
-
+db.loadDb();
 app.use(express.static('public'));
 app.use('/', require('./routes/pages').pages);
 app.use("/styles",  express.static(path.join(__dirname, 'public')));
