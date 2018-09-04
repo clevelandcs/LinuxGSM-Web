@@ -8,12 +8,12 @@ var io = require('socket.io')(server);
 var fs = require('fs');
 var db = require('./models/db.js');
 const config = require('./config');
-var socketController = require(path.join(__dirname,'controllers','sockets'));
+var socketController = require(path.join(__dirname, 'controllers', 'sockets'));
 
 //Defaults
 if (args.indexOf('-p') != -1) {
     port = args[args.indexOf('-p') + 1];
-}else{
+} else {
     port = config.app.port;
 }
 
@@ -24,19 +24,19 @@ if (args.indexOf('-p') != -1) {
     next();
 });
 */
-var controller = require(path.join(__dirname, 'routes','pages'));
+var controller = require(path.join(__dirname, 'routes', 'pages'));
 db.loadDb();
 app.use(express.static('public'));
 app.use('/', require('./routes/pages').pages);
-app.use("/styles",  express.static(path.join(__dirname, 'public')));
-
+app.use("/styles", express.static(path.join(__dirname, 'public')));
+app.use("/scripts", express.static(path.join(__dirname, 'public')));
 server.listen(port);
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+    res.sendFile(__dirname + '/views/index.html');
 });
 
-io.sockets.on('connection', function(socket){
+io.sockets.on('connection', function (socket) {
     console.log("client connected");
     socketController.listen(io, socket);
-})
+});

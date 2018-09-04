@@ -19,6 +19,10 @@
         console.log(data);
         socket.emit('my other event', { my: 'data' });
     });
+    socket.on('returnserverlist', function(data){
+        console.log(data);
+        var serverList = data;
+    });
 </script>
 
 <body>
@@ -31,13 +35,11 @@
             <ul class="navbar-nav">
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    <a class="nav-link dropdown-toggle" href="#List-Servers" id="navbardrop" data-toggle="dropdown">
                         Select Server
                     </a>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" id="Server-Select">
                         <a class="dropdown-item" href="#">Link 1</a>
-                        <a class="dropdown-item" href="#">Link 2</a>
-                        <a class="dropdown-item" href="#">Link 3</a>
                     </div>
                 </li>
             </ul>
@@ -68,10 +70,13 @@
                     <a href="#">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Servers</a>
+                    <a href="#">Server Info</a>
                 </li>
                 <li>
                     <a href="#">New Server</a>
+                </li>
+                <li>
+                    <a href="#">Users</a>
                 </li>
             </ul>
         </div>
@@ -89,13 +94,5 @@
     </div>
     <!-- /#wrapper -->
 </body>
-<!-- Menu Toggle Script -->
-<script>
-    $("#menu-toggle, #menu-toggle2").click(function (e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-        $(".sidebar-nav").fadeToggle();
-    });
-</script>
-
+<script type="text/javascript" src="scripts/server-manager-client.js"></script>
 </html>

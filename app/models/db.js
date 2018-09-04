@@ -12,7 +12,7 @@ exports.insertServer = function (serverName, game) {
         game: game,
         created: new Date(),
         createdBy: null,
-        description: null,
+        description: null, 
     };
 
     serverdb.insert(doc, function (err, newDoc) {   // Callback is optional
@@ -26,8 +26,27 @@ exports.deleteServer = function (serverName) {
 }
 
 exports.selectServerList = function(){
+    var docs;
     serverdb.find({ kind: 'lgsm - server' }, function (err, docs) {
       });
     return docs;
 }
-module.exports.serverdb;
+
+exports.updatesServerDescription = function(serverName, description){
+    db.update({ name: serverName }, { $set: { description: description } }, { multi: false }, function (err, numReplaced) {
+        // numReplaced = 3
+        // Field 'system' on Mars, Earth, Jupiter now has value 'solar system'
+      });
+}
+exports.updateServerCreatedBy = function(serverName, createdBy){
+    db.update({name: serverName}, {$set: { createdBy: createdBy}}, {multi:false}, function(err, numReplaced){
+
+    });
+}
+
+exports.selectServerByName = function(serverName){
+    var server;
+    return db.find({name: serverName}, function(err, docs){
+        return docs;
+    });
+}
